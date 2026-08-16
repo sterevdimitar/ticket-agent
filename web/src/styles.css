@@ -1,0 +1,251 @@
+:root {
+  --bg: #14161a;
+  --panel: #1c2027;
+  --line: #2c323c;
+  --text: #e6e9ee;
+  --muted: #98a2b3;
+  --accent: #4f8cff;
+  --danger: #ff5c5c;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.messages {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+}
+
+.message {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.message p {
+  margin: 4px 0;
+}
+
+.message-user {
+  border-color: #33507f;
+}
+
+.role {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.inert-link {
+  color: var(--muted);
+  text-decoration: underline dotted;
+  word-break: break-all;
+}
+
+/* Must not read as ticket prose: this is the UI reporting that an image was
+   defused, so it is styled as an annotation rather than as content. */
+.inert-image {
+  color: var(--muted);
+  font-style: italic;
+  word-break: break-all;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+}
+
+.composer input {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+}
+
+button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0b1220;
+  font-weight: 600;
+}
+
+button.danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #1a0808;
+  font-weight: 600;
+}
+
+.tool-trace ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-trace li {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+pre {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.error {
+  background: #3a1d1d;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 8, 12, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+  max-width: 520px;
+  width: 100%;
+}
+
+.modal-danger {
+  border-color: var(--danger);
+}
+
+.modal h2 {
+  color: var(--text);
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.modal dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 6px 12px;
+  margin: 14px 0;
+}
+
+.modal dt {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.modal dd {
+  margin: 0;
+}
+
+.modal-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

@@ -1,0 +1,15 @@
+// Type-check-only project. `tsconfig.json` is the *build* project and deliberately
+// includes just `src/` so that `npm run build` emits nothing but shipping code.
+// Nothing else in the repo type-checks the tests or the adversarial probe, so this
+// config widens the net without touching what `tsc` emits.
+//
+// `rootDir` is relaxed to the repo root purely so `scripts/` (which sits above
+// `server/`) can be included; with `noEmit` it has no other effect.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".."
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "../scripts/**/*.ts"]
+}

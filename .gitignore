@@ -1,0 +1,13 @@
+# private prep material — never commit
+*.private.*
+
+node_modules/
+dist/
+.env
+.env.*
+# ...but the template carries no secrets and must ship with the repo.
+!.env.example
+*.log
+
+# IDE
+.idea/
